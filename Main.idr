@@ -1,22 +1,31 @@
 module Main
 
 import Data.Vect
+import Data.String 
 
-record Stock where 
-    constructor MkStock
-    name : String 
-    -- we are using fixed point encoding to represent the price
-    price : (Int, Int)
+import Effects
+import Effect.Random
+import Effect.System
 
-record Model (n : Nat) where 
-    constructor MkModel
-    stocks : Vect n Stock
+import Model
+import Generate
 
 printHeader : IO ()
 printHeader = do
     putStrLn "Some sort of trading game"
 
+getSeed : Eff Integer [SYSTEM]
+getSeed = do 
+    [_, arg] <- getArgs | [] => pure 0
+                        | [_] => pure 0
+                        | _ => pure 0
+    case parseInteger arg of
+        Just a => pure a
+        Nothing => pure 0
+
 main : IO ()
 main = do
     printHeader
-    putStrLn "Yup"
+    seed <- run getSeed
+    xs <- run (genStocks seed 5)
+    putStrLn . show $ map name xs
