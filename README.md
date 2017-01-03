@@ -1,0 +1,1 @@
+Hopefully will be some sort of trading game where you buy/sell stuff written in Idris.
