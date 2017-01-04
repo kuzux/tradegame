@@ -1,5 +1,6 @@
 COMP=idris
-SRCS=Main.idr
+SRCS=Main.idr Model.idr Generate.idr
+ENTRY=Main.idr
 BIN=Main
 LIBS=effects
 
@@ -8,7 +9,7 @@ all: $(BIN)
 .PHONY = all clean
 
 Main: $(SRCS)
-	$(COMP) $(SRCS) -o $(BIN) -p $(LIBS)
+	$(COMP) $(ENTRY) -o $(BIN) -p $(LIBS)
 
 clean:
 	rm *.ibc $(BIN)

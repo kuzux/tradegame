@@ -1,7 +1,7 @@
 module Main
 
 import Data.Vect
-import Data.String 
+import Data.String
 
 import Effects
 import Effect.Random
@@ -27,5 +27,6 @@ main : IO ()
 main = do
     printHeader
     seed <- run getSeed
-    xs <- run (genStocks seed 5)
-    putStrLn . show $ map name xs
+    run $ srand seed
+    xs <- run (genStocks 5)
+    putStrLn . show $ map (fst . price) xs
