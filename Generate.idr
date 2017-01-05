@@ -4,7 +4,6 @@ import Data.Vect
 
 import Effects
 import Effect.Random
-import Effect.System
 
 import Model
 

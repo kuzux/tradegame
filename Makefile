@@ -1,5 +1,5 @@
 COMP=idris
-SRCS=Main.idr Model.idr Generate.idr
+SRCS=Main.idr Model.idr Generate.idr Update.idr Init.idr
 ENTRY=Main.idr
 BIN=Main
 LIBS=effects

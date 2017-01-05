@@ -9,6 +9,8 @@ import Effect.System
 
 import Model
 import Generate
+import Update
+import Init
 
 printHeader : IO ()
 printHeader = do
