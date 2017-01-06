@@ -30,5 +30,5 @@ main = do
     printHeader
     seed <- run getSeed
     run $ srand seed
-    xs <- run (genStocks 5)
-    putStrLn . show $ map (fst . price) xs
+    xs <- run init
+    putStrLn . show . map (fst . price) . stocks $ xs

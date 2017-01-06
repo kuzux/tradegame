@@ -7,5 +7,10 @@ import Model
 
 %access public export
 
-updatePrices : Model n -> Eff (Model n) [RND]
-updatePrices m = pure m
+data Message = 
+      Noop
+    | Buy Integer Integer
+    | Sell Integer Integer
+
+updatePrices : Message -> Model n -> Eff (Model n) [RND]
+updatePrices msg prev = pure prev
